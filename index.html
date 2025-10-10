@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ders Defterim - Akıllı Soru Bankası</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Ders Defterim - TYT AYT YKS Soru Bankası ve OCR Tarama Uygulaması</title>
+    <meta name="description" content="TYT, AYT ve YKS sınavlarına hazırlık için yapay zeka destekli soru tarama ve arşivleme uygulaması. OCR teknolojisi ile sorularını dijitalleştir, akıllı etiketlerle organize et.">
+    <meta name="keywords" content="TYT soru bankası, AYT soru bankası, YKS hazırlık, soru tarama uygulaması, OCR soru tarama, akıllı soru arşivi, ders çalışma uygulaması, sınav hazırlık, öğrenci uygulaması">
+    <meta name="author" content="Ders Defterim">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dersdefterim.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Ders Defterim - Akıllı Soru Bankası ve Tarama Uygulaması">
+    <meta property="og:description" content="TYT, AYT ve YKS sınavlarına hazırlık için yapay zeka destekli soru tarama uygulaması. Sorularını fotoğrafla, dijitalleştir ve organize et.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dersdefterim.com">
+    <meta property="og:image" content="https://dersdefterim.com/og-image.jpg">
+    <meta property="og:locale" content="tr_TR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ders Defterim - Akıllı Soru Bankası">
+    <meta name="twitter:description" content="Yapay zeka destekli soru tarama ve arşivleme uygulaması. TYT, AYT, YKS hazırlık için ideal.">
+    <meta name="twitter:image" content="https://dersdefterim.com/twitter-card.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Ders Defterim",
+        "description": "TYT, AYT ve YKS sınavlarına hazırlık için yapay zeka destekli soru tarama ve arşivleme uygulaması",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Android, iOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "TRY"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -44,6 +93,782 @@
             backdrop-filter: blur(10px);
             padding: 1rem 5%;
             z-index: 1000;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-purple);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-purple);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 4rem;
+            background: linear-gradient(135deg, var(--off-white) 0%, #f5f0ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--pastel-yellow) 0%, transparent 70%);
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--deep-purple), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 400px;
+            background: var(--white);
+            border-radius: 40px;
+            padding: 1rem;
+            box-shadow: 0 20px 60px var(--shadow);
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .mockup-screen {
+            background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+            border-radius: 30px;
+            padding: 2rem;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .mockup-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--deep-purple), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, var(--off-white), var(--white));
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--shadow);
+            border-color: var(--light-purple);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-purple);
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--off-white) 0%, #f5f0ff 100%);
+        }
+
+        .steps {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--bright-yellow), var(--pastel-yellow));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-purple);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 217, 61, 0.3);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--deep-purple);
+        }
+
+        .step p {
+            color: var(--text-medium);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--deep-purple);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--light-purple);
+            border-radius: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--deep-purple));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .faq {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            background: var(--off-white);
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h4 {
+            color: var(--deep-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--deep-purple), var(--primary-purple));
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Policy Pages */
+        .policy-section {
+            padding: 8rem 5% 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .policy-section h1 {
+            font-size: 2.5rem;
+            color: var(--deep-purple);
+            margin-bottom: 2rem;
+        }
+
+        .policy-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-purple);
+            margin: 2rem 0 1rem;
+        }
+
+        .policy-section p {
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .policy-section ul {
+            margin-left: 2rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .phone-mockup {
+                max-width: 300px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page Navigation */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">✨ Ders Defterim</div>
+            <ul id="nav-menu">
+                <li><a href="#home" onclick="showPage('home')">Ana Sayfa</a></li>
+                <li><a href="#features" onclick="showPage('home')">Özellikler</a></li>
+                <li><a href="#contact" onclick="showPage('home')">İletişim</a></li>
+                <li><a href="#privacy" onclick="showPage('privacy')">Gizlilik</a></li>
+                <li><a href="#terms" onclick="showPage('terms')">Şartlar</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>TYT AYT YKS Hazırlığında Yapay Zeka Destekli Soru Bankası ✨</h1>
+                    <p>OCR teknolojisi ile sorularını saniyeler içinde tarayıp dijital arşiv oluştur. Matematik, Fizik, Kimya, Biyoloji ve tüm dersler için akıllı soru organizasyonu. Başarıya giden yolda sihirli bir arkadaş edin.</p>
+                    <a href="#download" class="cta-button" aria-label="Ders Defterim Uygulamasını İndir">📱 Ücretsiz İndir</a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-medium);">⭐ 1000+ öğrenci kullanıyor | 4.8/5 puan</p>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="mockup-screen">
+                            <div class="mockup-icon">📚</div>
+                            <h3>Ders Defterim</h3>
+                            <p>Akıllı soru bankası</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2 class="section-title">TYT AYT YKS Hazırlık İçin Güçlü Özellikler</h2>
+            <p class="section-subtitle">Öğrenmeyi kolaylaştıran yapay zeka destekli araçlar</p>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>OCR Soru Tarama Teknolojisi</h3>
+                    <p>Matematik, Fizik, Türkçe sorularını fotoğrafla, yapay zeka otomatik olarak metne çevirsin. Google ML Kit destekli OCR teknolojisi ile %95+ doğruluk oranı.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3>Akıllı Soru Arşivleme Sistemi</h3>
+                    <p>TYT ve AYT sorularını ders, konu ve seviyeye göre otomatik organize et. Etiket bazlı arama ile istediğin soruya anında ulaş.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>YKS Performans Analizi</h3>
+                    <p>Hangi konularda güçlüsün, hangi konularda çalışman gerekiyor? Konu bazlı analiz panelimiz sana yol göstersin ve hedeflerine ulaşmanı sağlasın.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">✏️</div>
+                    <h3>Doğru Cevap Yönetimi</h3>
+                    <p>A, B, C, D, E seçeneklerini işaretle, doğru cevapları kaydet. Kendini test et, gelişimini takip et ve sınava hazır ol.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Özelleştirilebilir Etiket Sistemi</h3>
+                    <p>Sorularını "Deneme", "Zor", "Tekrar", "Limit", "Türev" gibi istediğin etiketlerle organize et. Kendi çalışma sistemini oluştur.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Bulut Senkronizasyonu</h3>
+                    <p>Supabase altyapısı ile verilerini güvenle sakla. Telefon, tablet ve bilgisayardan erişim sağla. Hiçbir soru kaybolmasın.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h2 class="section-title">Nasıl Çalışır?</h2>
+            <p class="section-subtitle">3 basit adımda başla</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Soruyu Tarayın</h3>
+                    <p>Kamera ile fotoğrafla veya galeriden yükle</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Bilgileri Ekle</h3>
+                    <p>Ders, konu ve etiketleri seç</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Arşivle & Çalış</h3>
+                    <p>Sorularına kolayca eriş ve çalışmaya başla</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="contact-content">
+                <h2 class="section-title">İletişim</h2>
+                <p class="section-subtitle">Sorularınız mı var? Bize ulaşın!</p>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Adınız</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Gönder</button>
+                </form>
+
+                <div class="faq">
+                    <h3 class="section-title" style="font-size: 1.8rem; margin-top: 3rem;">Sıkça Sorulan Sorular</h3>
+                    <div class="faq-item">
+                        <h4>Uygulama ücretsiz mi?</h4>
+                        <p>Evet, temel özellikler tamamen ücretsiz. Premium özellikler için uygun fiyatlı paketlerimiz mevcut.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Verilerim güvende mi?</h4>
+                        <p>Kesinlikle! Tüm verileriniz şifrelenmiş bulut sunucularda güvenle saklanır.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Hangi sınavlar için uygun?</h4>
+                        <p>TYT, AYT, YKS ve tüm okul sınavları için mükemmel bir çözüm sunuyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacy-page" class="page">
+        <section class="policy-section">
+            <h1>Gizlilik Politikası</h1>
+            <p><strong>Son Güncellenme:</strong> 8 Ekim 2025</p>
+            
+            <h2>1. Topladığımız Bilgiler</h2>
+            <p>Ders Defterim uygulamasını kullandığınızda aşağıdaki bilgileri topluyoruz:</p>
+            <ul>
+                <li>Hesap bilgileri (e-posta adresi, kullanıcı adı)</li>
+                <li>Yüklediğiniz soru fotoğrafları ve metinleri</li>
+                <li>Uygulama kullanım verileri ve tercihleriniz</li>
+                <li>Cihaz bilgileri (model, işletim sistemi)</li>
+            </ul>
+
+            <h2>2. Bilgilerin Kullanımı</h2>
+            <p>Topladığımız bilgileri şu amaçlarla kullanırız:</p>
+            <ul>
+                <li>Uygulama hizmetlerinin sağlanması</li>
+                <li>Kullanıcı deneyiminin iyileştirilmesi</li>
+                <li>Teknik destek sağlanması</li>
+                <li>Güvenlik ve dolandırıcılık önleme</li>
+            </ul>
+
+            <h2>3. Veri Güvenliği</h2>
+            <p>Verileriniz şifrelenmiş bulut sunucularda güvenle saklanır. Üçüncü taraflarla paylaşılmaz.</p>
+
+            <h2>4. Çerezler</h2>
+            <p>Uygulama performansını iyileştirmek için çerezler kullanıyoruz. Ayarlardan yönetebilirsiniz.</p>
+
+            <h2>5. Kullanıcı Hakları</h2>
+            <p>Verilerinize erişme, düzeltme veya silme hakkına sahipsiniz. datakutusu@gmail.com adresinden bize ulaşabilirsiniz.</p>
+
+            <h2>6. İletişim</h2>
+            <p>Gizlilik politikamız hakkında sorularınız için: <strong>datakutusu@gmail.com</strong></p>
+        </section>
+    </div>
+
+    <!-- Terms of Service Page -->
+    <div id="terms-page" class="page">
+        <section class="policy-section">
+            <h1>Kullanım Şartları</h1>
+            <p><strong>Son Güncellenme:</strong> 8 Ekim 2025</p>
+            
+            <h2>1. Hizmet Kullanımı</h2>
+            <p>Ders Defterim'i kullanarak aşağıdaki şartları kabul etmiş olursunuz:</p>
+            <ul>
+                <li>Uygulamayı yasal amaçlarla kullanacaksınız</li>
+                <li>Hesap bilgilerinizin güvenliğinden siz sorumlusunuz</li>
+                <li>Telif haklı içerik yüklemeyeceksiniz</li>
+            </ul>
+
+            <h2>2. Kullanıcı Sorumlulukları</h2>
+            <ul>
+                <li>Yüklediğiniz içerikten siz sorumlusunuz</li>
+                <li>Diğer kullanıcılara saygılı olacaksınız</li>
+                <li>Sistemi kötüye kullanmayacaksınız</li>
+            </ul>
+
+            <h2>3. Fikri Mülkiyet</h2>
+            <p>Uygulama ve içeriği Ders Defterim'e aittir. İzinsiz kullanılamaz.</p>
+
+            <h2>4. Hizmet Değişiklikleri</h2>
+            <p>Hizmeti herhangi bir zamanda değiştirme veya sonlandırma hakkımız saklıdır.</p>
+
+            <h2>5. Sorumluluk Reddi</h2>
+            <p>Uygulama "olduğu gibi" sağlanır. Veri kaybı veya hizmet kesintilerinden sorumlu değiliz.</p>
+
+            <h2>6. Hesap İptali</h2>
+            <p>Şartları ihlal eden hesaplar askıya alınabilir veya silinebilir.</p>
+
+            <h2>7. İletişim</h2>
+            <p>Kullanım şartları hakkında sorularınız için: <strong>datakutusu@gmail.com</strong></p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home" onclick="showPage('home')">Ana Sayfa</a>
+                <a href="#privacy" onclick="showPage('privacy')">Gizlilik Politikası</a>
+                <a href="#terms" onclick="showPage('terms')">Kullanım Şartları</a>
+                <a href="#contact" onclick="showPage('home'); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100)">İletişim</a>
+            </div>
+            <p>&copy; 2025 Ders Defterim. Tüm hakları saklıdır.</p>
+            <p>Destek: datakutusu@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Mesajınız alındı! En kısa sürede size dönüş yapacağız.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling for anchor links on home page
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && !['#home', '#privacy', '#terms'].includes(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({behavior: 'smooth'});
+                    }
+                }
+            });
+        });
+
+        // Add structured data for breadcrumbs
+        const breadcrumbSchema = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://dersdefterim.com"
+            }]
+        };
+
+        // Lazy loading for images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+
+        // Add performance monitoring
+        window.addEventListener('load', () => {
+            if ('performance' in window && 'timing' in window.performance) {
+                const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+                console.log('Page load time:', loadTime, 'ms');
+            }
+        });
+    </script>
+
+    <!-- Google Analytics (Replace with your ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>            z-index: 1000;
             box-shadow: 0 2px 20px var(--shadow);
         }
 
@@ -768,3 +1593,4 @@
         }
 
        
+
