@@ -1016,7 +1016,7 @@
 
         async function sendConfirmationEmail(email) {
     try {
-        const response = await fetch(`${SUPABASE_URL}/functions/v1/send-waitlist-email`, {
+        const response = await fetch(`${SUPABASE_URL}/functions/v1/waitlist-email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1109,6 +1109,7 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script> -->
+
 
 
 
