@@ -1020,17 +1020,18 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
                 'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
             },
-            body: JSON.stringify({ email })
+            body: JSON.stringify({ email: email })
         });
         
         if (!response.ok) {
-            console.error('Failed to send confirmation email');
+            const errorData = await response.text();
+            console.error('Email send failed:', errorData);
         }
     } catch (error) {
         console.error('Email send error:', error);
-        // Don't show error to user - email is secondary
     }
 }
         
@@ -1109,6 +1110,7 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script> -->
+
 
 
 
