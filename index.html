@@ -745,6 +745,21 @@
                 top: 0.5rem;
                 right: 1rem;
             }
+            .waitlist-message {
+                font-weight: 600;
+            }
+            
+            .waitlist-message.success {
+                background: rgba(76, 175, 80, 0.2);
+                color: #2e7d32;
+                border: 2px solid #4caf50;
+            }
+            
+            .waitlist-message.error {
+                background: rgba(244, 67, 54, 0.2);
+                color: #c62828;
+                border: 2px solid #f44336;
+            }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -852,24 +867,19 @@
             <h2>Erken Erişim İçin Kaydol</h2>
             <p>İlk kullanıcılar arasına katıl, özel avantajlardan faydalan!</p>
             <form class="waitlist-form" id="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
-                    <!-- <div class="form-group-inline"> -->
-                        <input 
+                    <input 
                             type="email" 
                             id="waitlist-email" 
                             placeholder="Email adresiniz"
                             required
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        >
+                    >
                         <button type="submit" class="submit-button" id="waitlist-submit-btn">
                             Kaydol
                         </button>
-                    <!-- </div> -->
-                    <!-- <p class="form-helper">✨ Spam göndermiyoruz, sadece önemli güncellemeler</p> -->
+                    <div id="waitlist-message" class="waitlist-message" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center;"></div>
                 </form>
-            <!-- <form class="waitlist-form" onsubmit="handleWaitlist(event)">
-                <input type="email" placeholder="E-posta adresin" required>
-                <button type="submit">Kaydol</button>
-            </form> -->
+            
         </div>
     </section>
 
@@ -1213,6 +1223,7 @@
     </script> -->
 </body>
 </html>
+
 
 
 
